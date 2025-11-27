@@ -52,13 +52,13 @@ stop: ## stop docker-compose services
 docker-build-push: ## Build and push multi-arch image to Docker Hub (amd64 + arm64)
 	docker buildx build \
 		--platform linux/amd64,linux/arm64 \
-		--tag chendaniely/docker-condalock-jupyterlab:latest \
-		--tag chendaniely/docker-condalock-jupyterlab:local-$(shell git rev-parse --short HEAD) \
+		--tag wfrankel55/docker-condalock-jupyterlab:latest \
+		--tag wfrankel55/docker-condalock-jupyterlab:local-$(shell git rev-parse --short HEAD) \
 		--push \
 		.
 
 .PHONY: docker-build-local
 docker-build-local: ## Build single-arch image for local testing (current platform only)
 	docker build \
-		--tag chendaniely/docker-condalock-jupyterlab:local \
+		--tag wfrankel55/docker-condalock-jupyterlab:local \
 		.
